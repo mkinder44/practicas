@@ -1,0 +1,6 @@
+delimiter $$
+create trigger borrar_piso after delete on pisos for each row
+BEGIN
+insert into comprados values (old.usuario_id, old.Codigo_piso, old.precio);
+end$$
+delimiter ;
